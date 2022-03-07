@@ -16,11 +16,6 @@ public class GamblerTest {
         System.out.println(" Testing started...");
     }
 
-    @AfterClass
-    public static void afterClass() {
-        System.out.println(" Testing Finished...");
-    }
-
     @Test
     public void testGamePlay_Win() {
 
@@ -33,6 +28,11 @@ public class GamblerTest {
 
         assertEquals(50, gambler.gamePlay(150, 50));
 
+    }
+
+    @AfterClass
+    public static void afterClass() {
+        System.out.println(" Testing Finished...");
     }
 
 }
