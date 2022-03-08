@@ -10,18 +10,27 @@ public class Gambler {
         Gambler gambler = new Gambler();
         Scanner scanner = new Scanner(System.in);
         System.out.println("******* Welcome to Gambler Game *******");
-        System.out.println("Set Limit till you want to win ");
-        int winLimit = scanner.nextInt();
-        System.out.println("Set Limit till you can afford Lose");
-        int loseLimit = scanner.nextInt();
-        gambler.gamePlay(winLimit, loseLimit);
+        System.out.println("Set Limit till you want to win for 3rd Use Case ");
+        int winLimit1 = scanner.nextInt();
+        System.out.println("Set Limit till you can afford Lose or 3rd Use Case");
+        int loseLimit1 = scanner.nextInt();
+        gambler.gamePlay(winLimit1, loseLimit1);
+
         System.out.println();
-        System.out.println("===================================================================================================       Use Case 3 Finished     ===================================================================================================");
-        System.out.println("Set Limit till you want to win ");
-        int winLimitt = scanner.nextInt();
-        System.out.println("Set Limit till you can afford Lose");
-        int loseLimitt = scanner.nextInt();
-        gambler.totalAmountCalFor20Days(winLimitt, loseLimitt);
+        System.out.println("=======================       Use Case 3 Finished     ============================");
+
+        System.out.println("Set Limit till you want to win for 4th Use Case ");
+        int winLimit2 = scanner.nextInt();
+        System.out.println("Set Limit till you can afford Lose for 4th Use Case ");
+        int loseLimit2 = scanner.nextInt();
+        gambler.totalAmountCalFor20Days(winLimit2, loseLimit2);
+        System.out.println("=======================       Use Case 4 Finished     ============================");
+
+        System.out.println("Set Limit till you want to win for 5th Use Case");
+        int winLimit3 = scanner.nextInt();
+        System.out.println("Set Limit till you can afford Lose 5th Use Case");
+        int loseLimit3 = scanner.nextInt();
+        gambler.monthlyCalculate(winLimit3, loseLimit3);
         System.out.println("******* Game Finished *******");
     }
 
@@ -88,5 +97,36 @@ public class Gambler {
         System.out.println("===================================================== In 20 Days Total Loses  =========================================             " + countLose);
     }
 
+    /**
+     * Use Case 5 ( Checking monthly Wins Or Loses And by how much. )
+     *
+     * @param winLimit  player will stop playing game when reaches to winLimit
+     * @param loseLimit player will stop playing game when reches to loseLimit
+     */
+    public void monthlyCalculate(int winLimit, int loseLimit) {
+        int checkWin = winLimit;
+        int checkLose = loseLimit;
+        int days = 30;
+        int countWin = 0;
+        int countLose = 0;
+        int wonByHowMuch = 0;
+        int loseByHowMuch = 0;
+        for (int index = 0; index < days; index++) {
+
+            int resultOfDay = gamePlay(winLimit, loseLimit);
+            if (resultOfDay == checkWin) {
+                wonByHowMuch = wonByHowMuch + resultOfDay;
+                countWin++;
+            } else if (resultOfDay == checkLose) {
+                loseByHowMuch = loseByHowMuch + resultOfDay;
+                countLose++;
+            }
+        }
+        System.out.println("==================================================== Monthly Result ============================================");
+        System.out.println("===================================================== In Month Total Wins  ==========================================            " + countWin);
+        System.out.println("===================================================== In Month Total Loses  =========================================             " + countLose);
+        System.out.println(" Won By :- " + wonByHowMuch);
+        System.out.println(" Lose By :- " + loseByHowMuch);
+    }
 }
 
