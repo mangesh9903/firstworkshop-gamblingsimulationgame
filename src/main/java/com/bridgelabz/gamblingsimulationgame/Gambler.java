@@ -10,7 +10,7 @@ public class Gambler {
         Gambler gambler = new Gambler();
         Scanner scanner = new Scanner(System.in);
         System.out.println("******* Welcome to Gambler Game *******");
-        System.out.println("Set Limit till you want to win for 3rd Use Case ");
+     /*   System.out.println("Set Limit till you want to win for 3rd Use Case ");
         int winLimit1 = scanner.nextInt();
         System.out.println("Set Limit till you can afford Lose or 3rd Use Case");
         int loseLimit1 = scanner.nextInt();
@@ -38,6 +38,13 @@ public class Gambler {
         System.out.println("Set Limit till you can afford Lose 6th Use Case");
         int loseLimit4 = scanner.nextInt();
         gambler.checkLuckyOrUnluckyDay(winLimit4, loseLimit4);
+        System.out.println("=======================       Use Case 6 Finished     ============================");*/
+
+        System.out.println("Set Limit till you want to win for 7th Use Case");
+        int winLimit5 = scanner.nextInt();
+        System.out.println("Set Limit till you can afford Lose 7th Use Case");
+        int loseLimit5 = scanner.nextInt();
+        gambler.ifWonPlayAgain(winLimit5, loseLimit5);
         System.out.println("******* Game Finished *******");
     }
 
@@ -172,6 +179,56 @@ public class Gambler {
         System.out.println("==================================================== Monthly How Many Luckiest Days And Unluckiest Days ============================================");
         System.out.println("===================================================== In Month Luckiest Days       ====================================            " + countWin);
         System.out.println("===================================================== In Month Unluckiest Days     ====================================             " + countLose);
+    }
+
+    /**
+     * UseCase 7 ( Checking IF the player Win most Time in the month then It can play again for next month
+     * if not then Player Quit Game)
+     *
+     * @param winLimit  player will stop playing game when reaches to winLimit
+     * @param loseLimit player will stop playing game when reches to loseLimit
+     */
+
+    public void ifWonPlayAgain(int winLimit, int loseLimit) {
+        int checkWin = winLimit;
+        int checkLose = loseLimit;
+        int days = 30;
+        int countWin = 0;
+        int countLose = 0;
+        int day = 0;
+        int luckiestDay = 0;
+        int unLuckiestDay = 0;
+
+        for (int index = 0; index < days; index++, day++) {
+
+            // UseCase  6
+            int resultOfDay = gamePlay(winLimit, loseLimit);
+            if (resultOfDay == checkWin) {
+                countWin++;
+                luckiestDay = day;
+                System.out.println("===================================== Luckyiest Day " + luckiestDay + " ============================================================");
+
+            } else if (resultOfDay == checkLose) {
+                countLose++;
+                unLuckiestDay = day;
+                System.out.println("===================================== Unluckyiest Day " + unLuckiestDay + " ============================================================");
+            }
+        }
+
+        // Use case 7
+        if (unLuckiestDay < luckiestDay) {
+            ifWonPlayAgain(winLimit, loseLimit);
+        } else {
+            System.out.println(" Finished");
+
+        }
+        System.out.println("==================================================== Monthly How Many Luckiest Days And Unluckiest Days ============================================");
+        System.out.println("===================================================== In Month Luckiest Days       ====================================            " + countWin);
+        System.out.println("===================================================== In Month Unluckiest Days     ====================================             " + countLose);
+        System.out.println();
+        System.out.println();
+
+
     }
 }
 
