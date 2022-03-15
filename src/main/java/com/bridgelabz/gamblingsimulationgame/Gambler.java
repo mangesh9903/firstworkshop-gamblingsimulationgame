@@ -10,42 +10,58 @@ public class Gambler {
         Gambler gambler = new Gambler();
         Scanner scanner = new Scanner(System.in);
         System.out.println("******* Welcome to Gambler Game *******");
-     /*   System.out.println("Set Limit till you want to win for 3rd Use Case ");
-        int winLimit1 = scanner.nextInt();
-        System.out.println("Set Limit till you can afford Lose or 3rd Use Case");
-        int loseLimit1 = scanner.nextInt();
-        gambler.gamePlay(winLimit1, loseLimit1);
+        while (true) {
+            System.out.println("====== Menu =======");
+            System.out.println("1. UC3.");
+            System.out.println("2. UC4.");
+            System.out.println("3. UC5.");
+            System.out.println("4. UC6.");
+            System.out.println("5. UC7.");
+            int ch = scanner.nextInt();
+            switch (ch) {
+                case 1:
+                    System.out.println("Set Limit till you want to win for 3rd Use Case ");
+                    int winLimit = scanner.nextInt();
+                    System.out.println("Set Limit till you can afford Lose or 3rd Use Case");
+                    int loseLimit = scanner.nextInt();
+                    gambler.gamePlay(winLimit, loseLimit);
+                    break;
+                case 2:
+                    System.out.println("Set Limit till you want to win for 4th Use Case ");
+                    int winLimit2 = scanner.nextInt();
+                    System.out.println("Set Limit till you can afford Lose for 4th Use Case ");
+                    int loseLimit2 = scanner.nextInt();
+                    gambler.totalAmountCalFor20Days(winLimit2, loseLimit2);
+                    break;
+                case 3:
+                    System.out.println("Set Limit till you want to win for 5th Use Case");
+                    int winLimit3 = scanner.nextInt();
+                    System.out.println("Set Limit till you can afford Lose 5th Use Case");
+                    int loseLimit3 = scanner.nextInt();
+                    gambler.monthlyCalculate(winLimit3, loseLimit3);
+                    break;
+                case 4:
+                    System.out.println("Set Limit till you want to win for 6th Use Case");
+                    int winLimit4 = scanner.nextInt();
+                    System.out.println("Set Limit till you can afford Lose 6th Use Case");
+                    int loseLimit4 = scanner.nextInt();
+                    gambler.checkLuckyOrUnluckyDay(winLimit4, loseLimit4);
+                    break;
+                case 5:
+                    System.out.println("Set Limit till you want to win for 7th Use Case");
+                    int winLimit5 = scanner.nextInt();
+                    System.out.println("Set Limit till you can afford Lose 7th Use Case");
+                    int loseLimit5 = scanner.nextInt();
+                    gambler.ifWonPlayAgain(winLimit5, loseLimit5);
+                    break;
+                case 6:
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid Input");
+                    break;
+            }
+        }
 
-        System.out.println();
-        System.out.println("=======================       Use Case 3 Finished     ============================");
-
-        System.out.println("Set Limit till you want to win for 4th Use Case ");
-        int winLimit2 = scanner.nextInt();
-        System.out.println("Set Limit till you can afford Lose for 4th Use Case ");
-        int loseLimit2 = scanner.nextInt();
-        gambler.totalAmountCalFor20Days(winLimit2, loseLimit2);
-        System.out.println("=======================       Use Case 4 Finished     ============================");
-
-        System.out.println();
-        System.out.println("Set Limit till you want to win for 5th Use Case");
-        int winLimit3 = scanner.nextInt();
-        System.out.println("Set Limit till you can afford Lose 5th Use Case");
-        int loseLimit3 = scanner.nextInt();
-        gambler.monthlyCalculate(winLimit3, loseLimit3);
-        System.out.println("=======================       Use Case 5 Finished     ============================");
-        System.out.println("Set Limit till you want to win for 6th Use Case");
-        int winLimit4 = scanner.nextInt();
-        System.out.println("Set Limit till you can afford Lose 6th Use Case");
-        int loseLimit4 = scanner.nextInt();
-        gambler.checkLuckyOrUnluckyDay(winLimit4, loseLimit4);
-        System.out.println("=======================       Use Case 6 Finished     ============================");*/
-
-        System.out.println("Set Limit till you want to win for 7th Use Case");
-        int winLimit5 = scanner.nextInt();
-        System.out.println("Set Limit till you can afford Lose 7th Use Case");
-        int loseLimit5 = scanner.nextInt();
-        gambler.ifWonPlayAgain(winLimit5, loseLimit5);
-        System.out.println("******* Game Finished *******");
     }
 
     /**
